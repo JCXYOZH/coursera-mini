@@ -18,7 +18,7 @@
   </i-cell-group>
 </view>
 
-<view>
+<!-- <view>
   <i-cell-group i-class="my-group-margin">
     <i-cell title="设置" is-link url="/pages/dashboard/index">
       <i-icon type="setup_fill" slot="icon" size="20" />
@@ -27,6 +27,20 @@
       <i-icon type="praise_fill" slot="icon" size="20" />
     </i-cell>
     <i-cell title="记录" is-link url="/pages/dashboard/index">
+      <i-icon type="prompt_fill" slot="icon" size="20" />
+    </i-cell>
+  </i-cell-group>
+</view> -->
+
+<view>
+  <i-cell-group i-class="my-group-margin">
+    <i-cell title="设置" is-link url="/pages/settings/index">
+      <i-icon type="setup_fill" slot="icon" size="20" />
+    </i-cell>
+    <i-cell title="签到" is-link url="/pages/sign/index">
+      <i-icon type="praise_fill" slot="icon" size="20" />
+    </i-cell>
+    <i-cell title="兑换" is-link url="/pages/exchange/index">
       <i-icon type="prompt_fill" slot="icon" size="20" />
     </i-cell>
   </i-cell-group>

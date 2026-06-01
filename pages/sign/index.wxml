@@ -1,0 +1,18 @@
+<view class="sign-container">
+  <view class="sign-card">
+    <view class="points-info">
+      <text class="points-num">{{points}}</text>
+      <text class="points-text">我的积分</text>
+    </view>
+    <view class="continuous-info">
+      已连续签到 <text class="days">{{continuousDays}}</text> 天
+    </view>
+    <button class="sign-btn" type="primary" size="default" bindtap="onSignTap" wx:if="{{!todaySigned}}">签到领积分</button>
+    <button class="sign-btn" type="primary" size="default" disabled wx:else>今日已签到</button>
+    <view class="invite-section">
+      <view class="invite-title">邀请好友得积分</view>
+      <input placeholder="输入好友账号(手机号)" value="{{inviteMobile}}" bindinput="onInviteMobileInput"/>
+      <button class="invite-btn" size="mini" type="warn" loading="{{inviting}}" bindtap="onInvite">邀请 (+25分)</button>
+    </view>
+  </view>
+</view>

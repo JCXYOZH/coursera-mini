@@ -16,8 +16,8 @@
     <button class="i-btn i-btn- i-btn-primary i-btn-square" form-type='submit'>登录</button>
   </view>
   <view style="padding:font-size: 26rpx;color: #606266;padding: 20rpx 50rpx;">
-    便于习题复习的个人账号专属微信小程序
-    <text  bindtap="register" style="color:#4399fc">登录</text>
+    拥有知新堂账号（不含社交号）后再点击
+    <text  bindtap="register" style="color:#4399fc">注册</text>
   </view>
   <i-spin size="large" fix wx:if="{{ spinShow }}"></i-spin>
 </form>

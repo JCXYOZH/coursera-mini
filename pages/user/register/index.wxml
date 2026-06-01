@@ -18,7 +18,7 @@
     </picker>
   </i-panel>
   <view>
-    <button class="i-btn i-btn- i-btn-primary i-btn-square" form-type='submit'>登录</button>
+    <button class="i-btn i-btn- i-btn-primary i-btn-square" form-type='submit'>注册</button>
   </view>
   <i-spin size="large" fix wx:if="{{ spinShow }}"></i-spin>
 </form>

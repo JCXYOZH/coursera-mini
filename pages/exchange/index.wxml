@@ -1,0 +1,19 @@
+<view class="exchange-container" wx:if="{{!loadError}}">
+  <view class="item" wx:for="{{items}}" wx:key="id">
+    <view class="item-name">{{item.name}}</view>
+    <view class="item-action">
+      <block wx:if="{{item.exchanged}}">
+        <button size="mini" type="success" bindtap="viewPdf" data-item="{{item}}">查看</button>
+      </block>
+      <block wx:elif="{{item.pointsRequired === 0}}">
+        <button size="mini" type="warn" bindtap="exchange" data-item="{{item}}">限时</button>
+      </block>
+      <block wx:else>
+        <button size="mini" type="primary" bindtap="exchange" data-item="{{item}}">{{item.pointsRequired}}积分</button>
+      </block>
+    </view>
+  </view>
+</view>
+<view class="error-card" wx:else>
+  <text class="error-text">{{errorMsg}}</text>
+</view>

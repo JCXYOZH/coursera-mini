@@ -17,7 +17,7 @@
     </swiper>
   </view>
 
-  <i-panel title="任务中心">
+  <!-- <i-panel title="任务中心">
     <i-collapse accordion i-class="index-collapse">
       <i-collapse-item i-class="index-collapse-item" title="{{item.title}}" name="{{item.id}}" wx:for="{{taskList}}" data-item="item" wx:key="{{item.id}}">
         <i-cell-group slot="content">
@@ -26,7 +26,7 @@
         </i-cell-group>
       </i-collapse-item>
     </i-collapse>
-  </i-panel>
+  </i-panel> -->
 
   <i-panel title="基础习题">
     <i-cell-group>

@@ -1,0 +1,72 @@
+page {
+  background: #f5f5f5;
+}
+.sign-container {
+  padding: 20rpx;
+}
+.sign-card {
+  background: white;
+  border-radius: 20rpx;
+  padding: 30rpx;
+}
+.points-info {
+  text-align: center;
+  margin: 40rpx 0;
+}
+.points-num {
+  font-size: 80rpx;
+  font-weight: bold;
+  color: #f56c6c;
+}
+.points-text {
+  display: block;
+  color: #999;
+  font-size: 30rpx;
+}
+.continuous-info {
+  text-align: center;
+  font-size: 34rpx;
+  margin: 30rpx 0;
+}
+.days {
+  color: #f56c6c;
+  font-weight: bold;
+}
+.sign-btn {
+  width: 60%;
+  border-radius: 40rpx;
+  background: #f56c6c;
+  color: white;
+}
+.invite-section {
+  margin-top: 40rpx;
+  border-top: 1rpx solid #eee;
+  padding-top: 30rpx;
+}
+.invite-title {
+  font-size: 30rpx;
+  margin-bottom: 15rpx;
+  color: #333;
+}
+.invite-section input {
+  border: 1rpx solid #ccc;
+  border-radius: 10rpx;
+  padding: 15rpx;
+  margin-bottom: 20rpx;
+}
+.invite-btn {
+  width: 100%;
+}
+.error-card {
+  text-align: center;
+  margin-top: 100rpx;
+}
+.error-text {
+  font-size: 36rpx;
+  color: #f56c6c;
+}
+.error-tip {
+  display: block;
+  color: #999;
+  margin-top: 20rpx;
+}
