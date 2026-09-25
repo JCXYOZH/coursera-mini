@@ -5,3 +5,14 @@ page { background: #f5f5f5; }
 .item-action button { margin-left: 20rpx; }
 .error-card { text-align: center; margin-top: 100rpx; }
 .error-text { font-size: 32rpx; color: #f56c6c; }
+.loading-wrap {
+  display: flex;
+  justify-content: center;  /* 水平居中 */
+  align-items: center;      /* 垂直居中 */
+  height: 200px;
+}
+.loading-text {
+  font-size: 14px;
+  color: #999;
+  text-align: center;      /* 确保文本自身居中（尤其是多行时） */
+}

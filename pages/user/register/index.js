@@ -25,10 +25,10 @@ Page({
       return;
     }
 
-    // 先校验手机号是否在知新堂注册
+    // 先校验手机号是否在知新堂注册（走知新堂后端 mainAPI）
     checkMobile(form.userName).then(res => {
-      if (res.response === true) {
-        // 存在，继续注册
+      if (res.data && res.data.isRegistered === true) {
+        // 已在知新堂注册，继续小程序端注册
         _this.setData({ spinShow: true });
         app.formPost('/api/wx/student/user/register', form)
           .then(res => {
@@ -42,11 +42,15 @@ Page({
             _this.setData({ spinShow: false });
             app.message(e, 'error')
           })
-      } else {
+      } else if (res.data && res.data.isRegistered === false) {
+        // 真正的"查无此人"
         app.message('该手机号未在知新堂注册，请先在知新堂注册账号', 'error')
+      } else {
+        // 返回结构异常（防御，正常不会出现）
+        app.message(res.message || '校验服务异常，请稍后重试', 'error')
       }
-    }).catch(() => {
-      app.message('校验手机号失败', 'error')
+    }).catch((e) => {
+      app.message(typeof e === 'string' ? e : '校验手机号失败', 'error')
     })
   }
 })

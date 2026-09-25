@@ -3,6 +3,7 @@ const app = getApp()
 Page({
   data: {
     items: [],
+    loading: true,   // 控制加载状态
     loadError: false,
     errorMsg: ''
   },
@@ -10,9 +11,12 @@ Page({
     this.loadItems()
   },
   loadItems() {
+    // 每次加载前显示loading
+    this.setData({ loading: true })
+
     const token = wx.getStorageSync('token')
     if (!token) {
-      this.setData({ loadError: true, errorMsg: '请先登录' })
+      this.setData({ loading: false, loadError: true, errorMsg: '请先登录' })
       return
     }
     wx.showNavigationBarLoading()
@@ -26,16 +30,16 @@ Page({
       success: (res) => {
         wx.hideNavigationBarLoading()
         if (res.statusCode === 200 && res.data.code === 1) {
-          this.setData({ items: res.data.response, loadError: false })
+          this.setData({ items: res.data.response, loadError: false, loading: false })
         } else if (res.data.code === 401) {
-          this.setData({ loadError: true, errorMsg: '登录已过期，请重新登录' })
+          this.setData({ loadError: true, errorMsg: '登录已过期，请重新登录', loading: false })
         } else {
-          this.setData({ loadError: true, errorMsg: res.data.message || '加载失败' })
+          this.setData({ loadError: true, errorMsg: res.data.message || '加载失败', loading: false })
         }
       },
       fail: () => {
         wx.hideNavigationBarLoading()
-        this.setData({ loadError: true, errorMsg: '网络不可用' })
+        this.setData({ loadError: true, errorMsg: '网络不可用', loading: false })
       }
     })
   },
@@ -73,12 +77,13 @@ Page({
       }
     })
   },
-  viewPdf(e) {
-    const item = e.currentTarget.dataset.item;
-    if (!item || !item.pdfPath) return;
-    const fileName = item.pdfPath.split('/').pop();
-    wx.navigateTo({
-      url: '/pages/pdfview/index?url=' + encodeURIComponent(app.globalData.baseAPI + '/api/public/pdf/' + fileName)
-    });
+  viewPdf() {
+    // 不再跳转 PDF 预览，而是提示用户前往 Web 端查看
+    wx.showModal({
+      title: '提示',
+      content: '请前往 Web 端查看 PDF 文件',
+      showCancel: false,
+      confirmText: '我知道了'
+    })
   }
 })

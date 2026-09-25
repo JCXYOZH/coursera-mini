@@ -1,19 +1,29 @@
-<view class="exchange-container" wx:if="{{!loadError}}">
-  <view class="item" wx:for="{{items}}" wx:key="id">
-    <view class="item-name">{{item.name}}</view>
-    <view class="item-action">
-      <block wx:if="{{item.exchanged}}">
-        <button size="mini" type="success" bindtap="viewPdf" data-item="{{item}}">查看</button>
-      </block>
-      <block wx:elif="{{item.pointsRequired === 0}}">
-        <button size="mini" type="warn" bindtap="exchange" data-item="{{item}}">限时</button>
-      </block>
-      <block wx:else>
-        <button size="mini" type="primary" bindtap="exchange" data-item="{{item}}">{{item.pointsRequired}}积分</button>
-      </block>
-    </view>
+<view class="exchange-container">
+  <!-- 加载中提示 -->
+  <view wx:if="{{loading}}" class="loading-wrap">
+    <text class="loading-text">加载中, 稍等片刻...</text>
   </view>
-</view>
-<view class="error-card" wx:else>
-  <text class="error-text">{{errorMsg}}</text>
+
+  <!-- 正常内容（含列表） -->
+  <block wx:elif="{{!loadError}}">
+    <view class="item" wx:for="{{items}}" wx:key="id">
+      <view class="item-name">{{item.name}}</view>
+      <view class="item-action">
+        <block wx:if="{{item.exchanged}}">
+          <button size="mini" type="success" bindtap="viewPdf" data-item="{{item}}">查看</button>
+        </block>
+        <block wx:elif="{{item.pointsRequired === 0}}">
+          <button size="mini" type="warn" bindtap="exchange" data-item="{{item}}">限时</button>
+        </block>
+        <block wx:else>
+          <button size="mini" type="primary" bindtap="exchange" data-item="{{item}}">{{item.pointsRequired}}积分</button>
+        </block>
+      </view>
+    </view>
+  </block>
+
+  <!-- 错误提示 -->
+  <view class="error-card" wx:else>
+    <text class="error-text">{{errorMsg}}</text>
+  </view>
 </view>
